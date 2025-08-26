@@ -49,7 +49,7 @@ export const api = {
     },
     updateTask(id: string, patch: Partial<Task>) {
         return http<Task>(`/tasks/${id}`, {
-            method: "POST",
+            method: "PATCH",
             body: JSON.stringify(patch)
         })
     },
@@ -58,7 +58,7 @@ export const api = {
     },
     // admin users
     listUsers() {
-        return http<Task[]>("/users")
+        return http<User[]>("/users")
     },
     addUser(user: { email: string; role?: "admin" | "user" }) {
     return http<User>("/users", { method: "POST", body: JSON.stringify(user) })
